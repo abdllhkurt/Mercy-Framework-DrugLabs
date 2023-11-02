@@ -6,7 +6,10 @@
 - [mercy-framework](https://github.com/Mercy-Collective/mercy-framework)
 
 ## Screenshots
+- Server side fuse
 ![Insurance](https://i.imgur.com/zCy1fy0.jpg)
+
+- Many stages
 ![Many Stages](https://i.imgur.com/QIK4mbf.jpg)
 
 ## Features
