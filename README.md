@@ -16,12 +16,12 @@
 ### Manual
 - Download the files and put them in the "resources\[mercy]\mercy-illegal" directory
 - Add to the sh_config file inside the mercy-illegal file
-    Config.LabsState = {
-        [1] = false,
-        [2] = false,
-        [3] = false,
-        [4] = false
-    }
+Config.LabsState = {
+    [1] = false,
+    [2] = false,
+    [3] = false,
+    [4] = false
+}
 - These ids can be increased when necessary
 ```
 ```
