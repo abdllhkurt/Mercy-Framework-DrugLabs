@@ -6,6 +6,7 @@
 - [mercy-framework](https://github.com/Mercy-Collective/mercy-framework)
 
 ## Screenshots
+![Insurance](https://imgur.com/a/X58OQwj.png)
 
 ## Features
 - Machines that can be locked and unlocked
