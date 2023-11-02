@@ -7,6 +7,7 @@
 
 ## Screenshots
 ![Insurance](https://i.imgur.com/zCy1fy0.jpg)
+![Many Stages](https://i.imgur.com/QIK4mbf.jpg)
 
 ## Features
 - Machines that can be locked and unlocked
