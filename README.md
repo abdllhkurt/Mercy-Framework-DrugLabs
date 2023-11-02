@@ -16,15 +16,15 @@
 ### Manual
 - Download the files and put them in the "resources\[mercy]\mercy-illegal" directory
 - Add to the sh_config file inside the mercy-illegal file
-Config.LabsState = {
-    [1] = false,
-    [2] = false,
-    [3] = false,
-    [4] = false
-}
+```
+    Config.LabsState = {
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false
+    }
+```
 - These ids can be increased when necessary
-```
-```
 
 ## Configuration
 
@@ -32,6 +32,7 @@ Config.LabsState = {
 - To produce your own special drug, you must create 6 separate stages as exemplified and define the items of these stages on your server.
 - There must be a separate key item (example: methkey1) for each laboratory.
 - For each lab you create, you must match an id in the config file
+```
     exports['mercy-ui']:AddEyeEntry("meth_lab_open_close", {
         Type = 'Zone',
         SpriteDistance = 1.61,
@@ -65,7 +66,9 @@ Config.LabsState = {
             }
         }
     })
+```
 - You should set the 6 separate stages you created as regions and determine the number of items the player will earn and spend.
+```
     exports['mercy-ui']:AddEyeEntry("meth_lab_1_stage1", {
         Type = 'Zone',
         SpriteDistance = 1.61,
@@ -95,5 +98,4 @@ Config.LabsState = {
             }
         }
     })
-
 ```
