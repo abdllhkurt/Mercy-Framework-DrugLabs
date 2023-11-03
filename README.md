@@ -30,6 +30,121 @@
     }
 ```
 - These ids can be increased when necessary
+- Required items for the lab with default settings
+```
+Shared.ItemList["methkey1"] = {
+	['ItemName'] = "methkey1",
+	['Label'] = "meth Key1",
+	['Weight'] = 11.5,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "key.png",
+	['Unique'] = true,
+	['Combinable'] = false,
+	['Description'] = "Sanırım bunu açacakkapıyı bulmalıyım...",
+	['DecayRate'] = 0.1,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = nil,
+}
+Shared.ItemList["cleaningproduct"] = {
+	['ItemName'] = "cleaningproduct",
+	['Label'] = "Cleaning Product",
+	['Weight'] = 0.10,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "m_cleaningproduct.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "Cleans n shit yo",
+	['DecayRate'] = 0.01,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 240,
+}
+Shared.ItemList["xmadde"] = {
+	['ItemName'] = "xmadde",
+	['Label'] = "X",
+	['Weight'] = 0.10,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "X.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "X ?",
+	['DecayRate'] = 0.01,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 240,
+}
+Shared.ItemList["mixidacid"] = {
+	['ItemName'] = "mixidacid",
+	['Label'] = "Mixid Acid",
+	['Weight'] = 0.10,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "mixed_acid.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "Doesn't look drinkable",
+	['DecayRate'] = 0.01,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 240,
+}
+Shared.ItemList["methbrick"] = {
+	['ItemName'] = "methbrick",
+	['Label'] = "meth brick",
+	['Weight'] = 1.5,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "c_methbrick.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "Grow my youngling!",
+	['DecayRate'] = 0.1,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 1,
+}
+Shared.ItemList["methcured"] = {
+	['ItemName'] = "methcured",
+	['Label'] = "meth cured",
+	['Weight'] = 1.5,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "c_methcured.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "Grow my youngling!",
+	['DecayRate'] = 0.1,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 1,
+}
+Shared.ItemList["methbatch"] = {
+	['ItemName'] = "methbatch",
+	['Label'] = "meth batch",
+	['Weight'] = 0.10,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "m_methbatch.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "Why is this empty?",
+	['DecayRate'] = 0.0,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 8,
+}
+Shared.ItemList["methbag"] = {
+	['ItemName'] = "methbag",
+	['Label'] = "meth bag",
+	['Weight'] = 0.10,
+	['Type'] = "Item",
+	['Metal'] = false,
+	['Image'] = "m_methbag.png",
+	['Unique'] = false,
+	['Combinable'] = nil,
+	['Description'] = "Why is this empty?",
+	['DecayRate'] = 0.0,
+	['RemoveWhenDecayed'] = false,
+	['Price'] = 8,
+}
+```
 
 ## Configuration
 
