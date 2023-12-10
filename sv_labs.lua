@@ -43,11 +43,13 @@ Citizen.CreateThread(function()
         TriggerClientEvent('mercy-illegal/client/methLabs/sync-state', -1, Config.LabsState[Id], Id)
     end)
 
-    EventsModule.RegisterServer("mercy-illegal/server/methLabs/give-reward", function(Source, Item, Amount, RequestItem, RequestItemAmount)
+    EventsModule.RegisterServer("mercy-illegal/server/methLabs/give-reward", function(Source, Item, Amount, RequestItem)
         local Player = PlayerModule.GetPlayerBySource(Source)
         Player.Functions.AddItem(Item, Amount, false, false, true)
         if RequestItem then
-            Player.Functions.RemoveItem(RequestItem, RequestItemAmount, false, true)
+            for k, v in ipairs(RequestItem) do
+                Player.Functions.RemoveItem(v.Name, v.Amount, false, true)
+            end
         end
     end)
 end)
