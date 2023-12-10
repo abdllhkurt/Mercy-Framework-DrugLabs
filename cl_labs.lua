@@ -6,11 +6,11 @@ end)
 RegisterNetEvent('mercy-illegal/client/methLabs/cook-meth', function(Data)
     local CanCook = CallbackModule.SendCallback('mercy-illegal/server/methLabs/can-cook-meth', Data.Id)
     if CanCook then
-        if exports['mercy-inventory']:HasEnoughOfItem(Data.RequestItem, Data.RequestItemAmount) then
+        if HasEnough(Data.RequestItem) then
             exports['mercy-inventory']:SetBusyState(true)
             exports['mercy-ui']:ProgressBar(Data.ProgressText, 4500, {['AnimName'] = Data.Animation, ['AnimDict'] = Data.AnimDict}, false, true, true, function(DidComplete)
                 if DidComplete then
-                    EventsModule.TriggerServer('mercy-illegal/server/methLabs/give-reward', Data.Item, Data.Amount, Data.RequestItem, Data.RequestItemAmount)
+                    EventsModule.TriggerServer('mercy-illegal/server/methLabs/give-reward', Data.Item, Data.Amount, Data.RequestItem)
                     exports['mercy-inventory']:SetBusyState(false)
                 end
             end)
@@ -83,7 +83,7 @@ Citizen.CreateThread(function()
                 Label = 'Collect X',
                 EventType = 'Client',
                 EventName = 'mercy-illegal/client/methLabs/cook-meth',
-                EventParams = { Id = 1, Item = "xmadde", Amount = 1, RequestItem = "cleaningproduct", RequestItemAmount = 3, Animation = "base_a_m_y_vinewood_01", AnimDict = "anim@amb@casino@valet_scenario@pose_d@", ProgressText = "Collect X" },
+                EventParams = { Id = 1, Item = "xmadde", Amount = 1, RequestItem = { {Name = "cleaningproduct", Amount = 3}, }, Animation = "base_a_m_y_vinewood_01", AnimDict = "anim@amb@casino@valet_scenario@pose_d@", ProgressText = "Collect X" },
                 Enabled = function(Entity)
                     return true
                 end,
@@ -113,7 +113,7 @@ Citizen.CreateThread(function()
                 Label = 'Mix ingredients',
                 EventType = 'Client',
                 EventName = 'mercy-illegal/client/methLabs/cook-meth',
-                EventParams = { Id = 1, Item = "mixidacid", Amount = 1, RequestItem = "xmadde", RequestItemAmount = 1, Animation = "gar_ig_5_filling_can", AnimDict = "timetable@gardener@filling_can", ProgressText = "Mixing" },
+                EventParams = { Id = 1, Item = "mixidacid", Amount = 1, RequestItem = { {Name = "xmadde", Amount = 1}, }, Animation = "gar_ig_5_filling_can", AnimDict = "timetable@gardener@filling_can", ProgressText = "Mixing" },
                 Enabled = function(Entity)
                     return true
                 end,
@@ -143,7 +143,7 @@ Citizen.CreateThread(function()
                 Label = 'Cooking',
                 EventType = 'Client',
                 EventName = 'mercy-illegal/client/methLabs/cook-meth',
-                EventParams = { Id = 1, Item = "methbrick", Amount = 1, RequestItem = "mixidacid", RequestItemAmount = 3, Animation = "fixing_a_player", AnimDict = "mini@repair", ProgressText = "Cooking" },
+                EventParams = { Id = 1, Item = "methbrick", Amount = 1, RequestItem = { {Name = "mixidacid", Amount = 3}, }, Animation = "fixing_a_player", AnimDict = "mini@repair", ProgressText = "Cooking" },
                 Enabled = function(Entity)
                     return true
                 end,
@@ -173,7 +173,7 @@ Citizen.CreateThread(function()
                 Label = 'Cooking',
                 EventType = 'Client',
                 EventName = 'mercy-illegal/client/methLabs/cook-meth',
-                EventParams = { Id = 1, Item = "methcured", Amount = 3, RequestItem = "methbrick", RequestItemAmount = 1, Animation = "fixing_a_player", AnimDict = "mini@repair", ProgressText = "Cooking" },
+                EventParams = { Id = 1, Item = "methcured", Amount = 3, RequestItem = { {Name = "methbrick", Amount = 1}, }, Animation = "fixing_a_player", AnimDict = "mini@repair", ProgressText = "Cooking" },
                 Enabled = function(Entity)
                     return true
                 end,
@@ -203,7 +203,7 @@ Citizen.CreateThread(function()
                 Label = 'packaging',
                 EventType = 'Client',
                 EventName = 'mercy-illegal/client/methLabs/cook-meth',
-                EventParams = { Id = 1, Item = "methbatch", Amount = 1, RequestItem = "methcured", RequestItemAmount = 1, Animation = "urinal_sink_loop", AnimDict = "missheist_agency3aig_23", ProgressText = "Packaging" },
+                EventParams = { Id = 1, Item = "methbatch", Amount = 1, RequestItem = { {Name = "methcured", Amount = 1}, {Name = 'emptybaggies', Amount = 1}, }, Animation = "urinal_sink_loop", AnimDict = "missheist_agency3aig_23", ProgressText = "Packaging" },
                 Enabled = function(Entity)
                     return true
                 end,
@@ -233,15 +233,22 @@ Citizen.CreateThread(function()
                 Label = 'Rest the material',
                 EventType = 'Client',
                 EventName = 'mercy-illegal/client/methLabs/cook-meth',
-                EventParams = { Id = 1, Item = "methbag", Amount = 1, RequestItem = "methbatch", RequestItemAmount = 1, Animation = "_idle_a", AnimDict = "random@shop_tattoo", ProgressText = "Sweet waiting" },
+                EventParams = { Id = 1, Item = "methbag", Amount = 1, RequestItem = { {Name = "methbatch", Amount = 1}, }, Animation = "_idle_a", AnimDict = "random@shop_tattoo", ProgressText = "Sweet waiting" },
                 Enabled = function(Entity)
                     return true
                 end,
             }
-        }
+        }        
     })
 
 end)
+
+function HasEnough(Item)
+    for k, v in ipairs(Item) do
+        if exports['mercy-inventory']:HasEnoughOfItem(v.Name, v.Amount) then else return false end
+    end
+    return true
+end
 
 exports("GetLabsState", function(Id)
     return Config.LabsState[Id]
